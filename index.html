@@ -128,6 +128,80 @@
     <div class="card">
     
     <div class="card-image">
+        <a href="/2019/01/21/quokka-js/" class="image is-7by1">
+            <img class="thumbnail" src="https://blog.zhangruipeng.me/hexo-theme-icarus/gallery/thumbnails/desert.jpg" alt="Quokka">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-01-21T07:22:35.000Z">2019-01-21</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/utils/">utils</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/utils/vscode/">vscode</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 500 个字)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/01/21/quokka-js/">Quokka</a>
+            
+        </h1>
+        <div class="content">
+            <p>Quokka.js 是 JavaScript 和 TypeScript 的快速原型操作平台。它会在您键入时立即运行代码，并在代码编辑器中显示各种执行结果</p>
+<p>简单的来说，它就是可以让我们开发者们最小程度的进行快速小 demo 的工具</p>
+<blockquote>
+<p>官方简介：Quokka.js is a rapid prototyping playground for JavaScript and TypeScript. It runs your code immediately as you type and displays various execution results in your code editor.</p>
+</blockquote>
+<p><a href="https://quokkajs.com/" target="_blank" rel="noopener">https://quokkajs.com/</a></p>
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="下载插件"><a href="#下载插件" class="headerlink" title="下载插件"></a>下载插件</h3><p>在 vscode 中的插件管理中可以直接下载 Quokka.js</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ol>
+<li>在 vscode 编辑器中按 F1，输入 <code>New JavaScript File</code></li>
+<li>编写你的 JavaScript 代码</li>
+</ol>
+<p>官方demo：</p>
+<p><img src="https://quokkajs.com/assets/img/vsc1.gif" alt=""></p>
+<h2 id="使用感受"><a href="#使用感受" class="headerlink" title="使用感受"></a>使用感受</h2><h3 id="很适合输出小-demo"><a href="#很适合输出小-demo" class="headerlink" title="很适合输出小 demo"></a>很适合输出小 demo</h3><p>默认使用当前的 node 环境，可以通过插件（<a href="https://github.com/wallabyjs/jsdom-quokka-plugin" target="_blank" rel="noopener">jsdom-quokka-plugin</a>）拓展到 window 对象<br>不需要保存就可以看到任何一段代码的输出，真的不要太快，很类似速写笔记本。</p>
+<h3 id="直观"><a href="#直观" class="headerlink" title="直观"></a>直观</h3><p>比 debug 更加直观的体现每行代码</p>
+<ul>
+<li>绿色方块：行尚未执行</li>
+<li>灰色方块：执行通过</li>
+<li>黄色方块：仅部分执行</li>
+<li>红色方块：源行是错误的来源，或者是错误的堆栈</li>
+</ul>
+<h3 id="清晰"><a href="#清晰" class="headerlink" title="清晰"></a>清晰</h3><p>和浏览器控制台一样的展开效果，对比与 node debug 要清晰</p>
+<p><img src="https://quokkajs.com/assets/img/vsc-valexp.gif" alt=""></p>
+<h2 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h2><p><strong>代码会自动通过 babel 去编译</strong>，这个可能不是开发者们想要的，比如</p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> fs <span class="hljs-keyword">from</span> <span class="hljs-string">'fs'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(fs)</span><br></pre></td></tr></table></figure>
+<p>这个不会报错，但是通过原生 node 下是无法直接执行的</p>
+<h3 id="社区版和-Pro-版"><a href="#社区版和-Pro-版" class="headerlink" title="社区版和 Pro 版"></a>社区版和 Pro 版</h3><p>未付费的情况下，只能使用的是<strong>社区版</strong>。功能有限，比如无法导入其他模块，Pro 强大一点，但是要花掉几十块大洋。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.zhihu.com/question/37623307/answer/72955853" target="_blank" rel="noopener">TDD（测试驱动开发）是否已死？</a></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-image">
         <a href="/2019/01/19/跨域资源共享/" class="image is-7by1">
             <img class="thumbnail" src="https://blog.zhangruipeng.me/hexo-theme-icarus/gallery/thumbnails/flower.jpg" alt="跨域资源共享">
         </a>
@@ -138,6 +212,10 @@
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-01-19T10:16:57.000Z">2019-01-19</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/ajax/">ajax</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/ajax/damao/">damao</a>
+                </div>
                 
                 
                 <span class="level-item has-text-grey">
@@ -183,6 +261,10 @@
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2018-12-07T10:39:01.577Z">2018-12-07</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/ajax/">ajax</a>
+                </div>
                 
                 
                 <span class="level-item has-text-grey">
@@ -295,13 +377,13 @@
         </h1>
         <div class="content">
             <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="hljs-string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
         </div>
@@ -329,10 +411,10 @@
         <nav class="level">
             <div class="level-item has-text-centered">
                 <div>
-                    <img class="image is-128x128 has-mb-6" src="https://www.gravatar.com/avatar/a36e2d18566295c0412f75862c8f9564?s=500" alt="那年夏天的902公交车">
+                    <img class="image is-128x128 has-mb-6" src="https://www.gravatar.com/avatar/a36e2d18566295c0412f75862c8f9564?s=500" alt="你的名字">
                     
                     <p class="is-size-4 is-block">
-                        那年夏天的902公交车
+                        你的名字
                     </p>
                     
                     
@@ -343,7 +425,7 @@
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
                         <i class="fas fa-map-marker-alt has-mr-7"></i>
-                        <span>广州 · Guangzhou</span>
+                        <span>广州 · Guangzhou · 902</span>
                     </p>
                     
                 </div>
@@ -356,7 +438,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        4
+                        5
                     </p>
                 </div>
             </div>
@@ -366,7 +448,7 @@
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        0
+                        4
                     </p>
                 </div>
             </div>
@@ -376,7 +458,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        0
+                        3
                     </p>
                 </div>
             </div>
@@ -473,7 +555,39 @@
                 分类
             </h3>
             <ul class="menu-list">
-            
+            <li>
+        <a class="level is-marginless" href="/categories/ajax/">
+            <span class="level-start">
+                <span class="level-item">ajax</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/ajax/damao/">
+            <span class="level-start">
+                <span class="level-item">damao</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/utils/">
+            <span class="level-start">
+                <span class="level-item">utils</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/utils/vscode/">
+            <span class="level-start">
+                <span class="level-item">vscode</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li>
             </ul>
         </div>
     </div>
@@ -485,7 +599,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        
+        <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/单元测试/" style="font-size: 10px;">单元测试</a> <a href="/tags/测试驱动开发/" style="font-size: 10px;">测试驱动开发</a>
     </div>
 </div>
 
@@ -502,6 +616,25 @@
         
         <article class="media">
             
+            <a href="/2019/01/21/quokka-js/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://blog.zhangruipeng.me/hexo-theme-icarus/gallery/thumbnails/desert.jpg" alt="Quokka">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-21T07:22:35.000Z">2019-01-21</time></div>
+                    <a href="/2019/01/21/quokka-js/" class="has-link-black-ter is-size-6">Quokka</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/utils/">utils</a> / <a class="has-link-grey -link" href="/categories/utils/vscode/">vscode</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/01/19/跨域资源共享/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://blog.zhangruipeng.me/hexo-theme-icarus/gallery/thumbnails/flower.jpg" alt="跨域资源共享">
@@ -513,7 +646,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-19T10:16:57.000Z">2019-01-19</time></div>
                     <a href="/2019/01/19/跨域资源共享/" class="has-link-black-ter is-size-6">跨域资源共享</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/ajax/">ajax</a> / <a class="has-link-grey -link" href="/categories/ajax/damao/">damao</a>
                     </p>
                 </div>
             </div>
@@ -532,7 +665,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-07T10:39:01.577Z">2018-12-07</time></div>
                     <a href="/2018/12/07/custom/" class="has-link-black-ter is-size-6">custom</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/ajax/">ajax</a>
                     </p>
                 </div>
             </div>
@@ -594,7 +727,7 @@
                     <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -622,6 +755,39 @@
                 标签
             </h3>
             <ul class="menu-list">
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/vscode/">
+                        <span class="level-start">
+                            <span class="level-item">vscode</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/单元测试/">
+                        <span class="level-start">
+                            <span class="level-item">单元测试</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/测试驱动开发/">
+                        <span class="level-start">
+                            <span class="level-item">测试驱动开发</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
                 
             </ul>
         </div>
@@ -648,6 +814,25 @@
         
         <article class="media">
             
+            <a href="/2019/01/21/quokka-js/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://blog.zhangruipeng.me/hexo-theme-icarus/gallery/thumbnails/desert.jpg" alt="Quokka">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-21T07:22:35.000Z">2019-01-21</time></div>
+                    <a href="/2019/01/21/quokka-js/" class="has-link-black-ter is-size-6">Quokka</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/utils/">utils</a> / <a class="has-link-grey -link" href="/categories/utils/vscode/">vscode</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/01/19/跨域资源共享/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://blog.zhangruipeng.me/hexo-theme-icarus/gallery/thumbnails/flower.jpg" alt="跨域资源共享">
@@ -659,7 +844,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-19T10:16:57.000Z">2019-01-19</time></div>
                     <a href="/2019/01/19/跨域资源共享/" class="has-link-black-ter is-size-6">跨域资源共享</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/ajax/">ajax</a> / <a class="has-link-grey -link" href="/categories/ajax/damao/">damao</a>
                     </p>
                 </div>
             </div>
@@ -678,7 +863,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-07T10:39:01.577Z">2018-12-07</time></div>
                     <a href="/2018/12/07/custom/" class="has-link-black-ter is-size-6">custom</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/ajax/">ajax</a>
                     </p>
                 </div>
             </div>
@@ -740,7 +925,7 @@
                     <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -768,6 +953,39 @@
                 标签
             </h3>
             <ul class="menu-list">
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/vscode/">
+                        <span class="level-start">
+                            <span class="level-item">vscode</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/单元测试/">
+                        <span class="level-start">
+                            <span class="level-item">单元测试</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/测试驱动开发/">
+                        <span class="level-start">
+                            <span class="level-item">测试驱动开发</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
                 
             </ul>
         </div>
