@@ -128,8 +128,73 @@
     <div class="card">
     
     <div class="card-image">
+        <a href="/2019/01/29/debug-小记/" class="image is-7by1">
+            <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/6.jpg!/both/1500x750" alt="debug 小记">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-01-29T07:27:59.000Z">2019-01-29</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/node/">node</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 273 个字)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/01/29/debug-小记/">debug 小记</a>
+            
+        </h1>
+        <div class="content">
+            <blockquote>
+<p>记录在 debug 道路上</p>
+</blockquote>
+<h2 id="execArgv-与-argv"><a href="#execArgv-与-argv" class="headerlink" title="execArgv 与 argv"></a>execArgv 与 argv</h2><p>execArgv 是执行参数，作用是给 node 去读的，比如</p>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">node --inspect index.js server</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># --inspect 是给 node 使用的</span></span><br><span class="line"><span class="hljs-comment"># server 则是在应用里面解析</span></span><br></pre></td></tr></table></figure>
+<h2 id="抓不到进程"><a href="#抓不到进程" class="headerlink" title="抓不到进程"></a>抓不到进程</h2><p>设置了 <code>process.title</code>，vscode debug 机制似乎可以捕捉到只有两种 title:</p>
+<ul>
+<li>code helper</li>
+<li>node</li>
+</ul>
+<p>如果设置了 title，可以就抓不到了。比如</p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.title = <span class="hljs-string">'hexo'</span></span><br></pre></td></tr></table></figure>
+<h2 id="多线程调试"><a href="#多线程调试" class="headerlink" title="多线程调试"></a>多线程调试</h2><p>虽然自带了有 autoAttachChildProcesses 这个属性，但是只对 <code>cluster</code> 有很好的支持</p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> &#123; fork &#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">'child_process'</span>);</span><br><span class="line"></span><br><span class="line">fork(<span class="hljs-string">'compute.js'</span>);</span><br></pre></td></tr></table></figure>
+<p>这样会因为<strong>子进程启动了重复的 debug 端口而报错</strong></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Debugger listening on ws://127.0.0.1:3228/8ae7c5c1-440f-4f1e-ac41-da1f37588e36</span><br><span class="line">For help, see: https://nodejs.org/en/docs/inspector</span><br><span class="line">Debugger attached.</span><br><span class="line">Starting inspector on 127.0.0.1:3228 failed: address already in use</span><br><span class="line">Assertion failed: (!uv__is_closing(handle)), function uv_close, file ../deps/uv/src/unix/core.c, line 117.</span><br><span class="line">Debugger attached.</span><br></pre></td></tr></table></figure>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>给子进程设置单独的 debug 端口</p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fork(<span class="hljs-string">'compute.js'</span>, [], &#123; <span class="hljs-attr">execArgv</span>: [<span class="hljs-string">'--inspect-brk=9111'</span>] &#125;);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 如果是第三方库，需要去改一下源码，这个有点蛋疼</span></span><br></pre></td></tr></table></figure>
+<p>再通过端口附加去抓到就可以了。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-image">
         <a href="/2019/01/21/node-本地-debug-调试/" class="image is-7by1">
-            <img class="thumbnail" src="/gallery/true.jpeg" alt="node 本地 debug 调试">
+            <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/3.jpg!/both/1500x750" alt="node 本地 debug 调试">
         </a>
     </div>
     
@@ -147,7 +212,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    6 分钟 读完 (大约 833 个字)
+                    6 分钟 读完 (大约 925 个字)
                 </span>
                 
             </div>
@@ -161,7 +226,7 @@
         <div class="content">
             <p>开发者一般在开发初期的时候（包括现在的我），不管是在 node，还是浏览器 js 中都习惯使用 <code>console.log</code> 来进行代码的调试。这样做的好处是灰常的简单，特别是在浏览器 js 开发中，因为可以树状展开的原因，包括很多资深的前端工程师，都很喜欢使用。</p>
 <p>但是很多优秀的开发者手中，只需要 <code>debug</code> 一次，就能很高效的发现问题。效率比 <code>console</code> 高出许多</p>
-<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node --inspect index.js</span><br></pre></td></tr></table></figure>
+<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node --inspect index.js</span><br></pre></td></tr></table></figure>
 <p>只需要加上一个 <code>--inspect</code> 的参数（Node版本要大于7），就可以启动了。成功后会打印出来：</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Debugger listening on ws://127.0.0.1:9229/787188b1-6d48-4756-9cef</span><br><span class="line">-0a7aa8d25b76For help, see: https://nodejs.org/en/docs/inspector</span><br></pre></td></tr></table></figure>
 <p>上面的命令会打开一个 WebSockets 的服务，指定了9229作为默认的端口配置查看：</p>
@@ -173,20 +238,21 @@
 </ul>
 <h3 id="Chrome-DevTools"><a href="#Chrome-DevTools" class="headerlink" title="Chrome DevTools"></a>Chrome DevTools</h3><p>进入<a href="chrome://inspect/#devices" target="_blank" rel="noopener">chrome://inspect/#devices</a>，打开控制台会出现 <code>Server running at http://127.0.0.1:8888/</code>,表示已经开启成功了，也可以在控制台上输入 process，会看到 process 对象被打印出来了。</p>
 <p>进入 source 面板。点击 <code>add folder to workspace</code> 添加你的项目到工作区，就可以进行源码调试了。</p>
-<h3 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a>Visual Studio Code</h3><p>通过配置 launch.json 来实现。</p>
+<p>虽然 chrome 对 node 调试的支持十分友好，但是因为没办法在编辑器中打断点。这种方式还是不太常用</p>
+<h3 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a>Visual Studio Code</h3><p>通过配置项目 .vscode/launch.json 来实现。</p>
 <figure class="highlight json hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"0.2.0"</span>,</span><br><span class="line">  <span class="hljs-attr">"configurations"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"node"</span>,</span><br><span class="line">      <span class="hljs-attr">"request"</span>: <span class="hljs-string">"attach"</span>,</span><br><span class="line">      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Attach by Process ID"</span>,</span><br><span class="line">      <span class="hljs-attr">"processId"</span>: <span class="hljs-string">"$&#123;command:PickProcess&#125;"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"node"</span>,</span><br><span class="line">      <span class="hljs-attr">"request"</span>: <span class="hljs-string">"launch"</span>,</span><br><span class="line">      <span class="hljs-attr">"runtimeVersion"</span>: <span class="hljs-string">"4.6.1"</span>,</span><br><span class="line">      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"启动程序"</span>,</span><br><span class="line">      <span class="hljs-attr">"program"</span>: <span class="hljs-string">"$&#123;workspaceFolder&#125;/index.js"</span>,</span><br><span class="line">      <span class="hljs-attr">"args"</span>: [</span><br><span class="line">        <span class="hljs-string">"param"</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="request-区分两种启动方式"><a href="#request-区分两种启动方式" class="headerlink" title="request 区分两种启动方式"></a>request 区分两种启动方式</h4><ol>
 <li>attach</li>
 <li>launch</li>
 </ol>
 <h5 id="attach"><a href="#attach" class="headerlink" title="attach"></a>attach</h5><p>连接调试法，这种调试相对与 Node.js 应用独立。在取消 debug 的时候通常也不会影响到 Node.js 应用。</p>
-<p>这种调试法通过不同的连接方式也区分两种</p>
+<p>attach 调试通过不同的连接方式也区分两种</p>
 <ul>
 <li>连接进程<ol>
 <li>必传 <code>processId</code> 字段，<code>processId</code> 是应用的进程 id，在代码中也可以通过 process.pid 查看</li>
 <li>可以在 launch.json 中配置，也可以使用 Debug: Attach to Node Process 命令快速连接</li>
 <li>因为 <code>processId</code> 是系统随机产生的，还是建议用上面的命令。</li>
-<li>只能用作本地 debug</li>
+<li><strong>只能用作本地 debug</strong></li>
 </ol>
 </li>
 <li>连接端口<ol>
@@ -196,14 +262,17 @@
 </ol>
 </li>
 </ul>
-<h4 id="configuration-attributes"><a href="#configuration-attributes" class="headerlink" title="configuration attributes"></a>configuration attributes</h4><ul>
+<blockquote>
+<p>本质上两种原理是一样的，只是在用法上有点不同，端口必开进程这个就不说了。连接进程的时候，其实也是在进程上开一个 debug 端口。</p>
+</blockquote>
+<h4 id="一些通用配置"><a href="#一些通用配置" class="headerlink" title="一些通用配置"></a>一些通用配置</h4><ul>
 <li>type：调试的类型，前端开发用的比较多的是 <code>node</code> 和 <code>chrome</code></li>
 <li>request：调试方式来，可选的有 <strong>attach</strong> 和 <strong>launch</strong></li>
 </ul>
-<h4 id="Attach配置的一些属性"><a href="#Attach配置的一些属性" class="headerlink" title="Attach配置的一些属性"></a>Attach配置的一些属性</h4><ul>
+<h4 id="Attach配置"><a href="#Attach配置" class="headerlink" title="Attach配置"></a>Attach配置</h4><ul>
 <li>processId：附加的进程 ID</li>
 </ul>
-<h4 id="Launch配置的一些属性"><a href="#Launch配置的一些属性" class="headerlink" title="Launch配置的一些属性"></a>Launch配置的一些属性</h4><ul>
+<h4 id="Launch配置的"><a href="#Launch配置的" class="headerlink" title="Launch配置的"></a>Launch配置的</h4><ul>
 <li>program：要调试的 Node.js 程序的绝对路径</li>
 <li>args：命令行参数</li>
 <li>runtimeExecutable：要使用的可执行文件，比如 npm、nodemon</li>
@@ -226,7 +295,7 @@
     
     <div class="card-image">
         <a href="/2019/01/21/quokka-js/" class="image is-7by1">
-            <img class="thumbnail" src="https://blog.zhangruipeng.me/hexo-theme-icarus/gallery/thumbnails/desert.jpg" alt="Quokka">
+            <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/2.jpg!/both/1500x750" alt="Quokka">
         </a>
     </div>
     
@@ -535,7 +604,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        6
+                        7
                     </p>
                 </div>
             </div>
@@ -555,7 +624,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        8
+                        7
                     </p>
                 </div>
             </div>
@@ -655,7 +724,7 @@
                 <span class="level-item">node</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/utils/">
@@ -691,9 +760,28 @@
         
         <article class="media">
             
+            <a href="/2019/01/29/debug-小记/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/6.jpg!/both/1500x750" alt="debug 小记">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-29T07:27:59.000Z">2019-01-29</time></div>
+                    <a href="/2019/01/29/debug-小记/" class="has-link-black-ter is-size-6">debug 小记</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/node/">node</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/01/21/node-本地-debug-调试/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/true.jpeg" alt="node 本地 debug 调试">
+                    <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/3.jpg!/both/1500x750" alt="node 本地 debug 调试">
                 </p>
             </a>
             
@@ -712,7 +800,7 @@
             
             <a href="/2019/01/21/quokka-js/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="https://blog.zhangruipeng.me/hexo-theme-icarus/gallery/thumbnails/desert.jpg" alt="Quokka">
+                    <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/2.jpg!/both/1500x750" alt="Quokka">
                 </p>
             </a>
             
@@ -765,25 +853,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/12/07/test-01/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-2712.jpg" alt="Hello World">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-07T06:29:28.221Z">2018-12-07</time></div>
-                    <a href="/2018/12/07/test-01/" class="has-link-black-ter is-size-6">Hello World</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -802,7 +871,7 @@
                     <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -829,7 +898,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/browser/" style="font-size: 10px;">browser</a> <a href="/tags/client/" style="font-size: 10px;">client</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/单元测试/" style="font-size: 10px;">单元测试</a> <a href="/tags/测试驱动开发/" style="font-size: 10px;">测试驱动开发</a>
+        <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/browser/" style="font-size: 10px;">browser</a> <a href="/tags/debug/" style="font-size: 20px;">debug</a> <a href="/tags/node/" style="font-size: 20px;">node</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/单元测试/" style="font-size: 10px;">单元测试</a> <a href="/tags/测试驱动开发/" style="font-size: 10px;">测试驱动开发</a>
     </div>
 </div>
 
@@ -854,9 +923,28 @@
         
         <article class="media">
             
+            <a href="/2019/01/29/debug-小记/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/6.jpg!/both/1500x750" alt="debug 小记">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-29T07:27:59.000Z">2019-01-29</time></div>
+                    <a href="/2019/01/29/debug-小记/" class="has-link-black-ter is-size-6">debug 小记</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/node/">node</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/01/21/node-本地-debug-调试/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/true.jpeg" alt="node 本地 debug 调试">
+                    <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/3.jpg!/both/1500x750" alt="node 本地 debug 调试">
                 </p>
             </a>
             
@@ -875,7 +963,7 @@
             
             <a href="/2019/01/21/quokka-js/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="https://blog.zhangruipeng.me/hexo-theme-icarus/gallery/thumbnails/desert.jpg" alt="Quokka">
+                    <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/2.jpg!/both/1500x750" alt="Quokka">
                 </p>
             </a>
             
@@ -928,25 +1016,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/12/07/test-01/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-2712.jpg" alt="Hello World">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-07T06:29:28.221Z">2018-12-07</time></div>
-                    <a href="/2018/12/07/test-01/" class="has-link-black-ter is-size-6">Hello World</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -965,7 +1034,7 @@
                     <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -992,7 +1061,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/browser/" style="font-size: 10px;">browser</a> <a href="/tags/client/" style="font-size: 10px;">client</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/单元测试/" style="font-size: 10px;">单元测试</a> <a href="/tags/测试驱动开发/" style="font-size: 10px;">测试驱动开发</a>
+        <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/browser/" style="font-size: 10px;">browser</a> <a href="/tags/debug/" style="font-size: 20px;">debug</a> <a href="/tags/node/" style="font-size: 20px;">node</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/单元测试/" style="font-size: 10px;">单元测试</a> <a href="/tags/测试驱动开发/" style="font-size: 10px;">测试驱动开发</a>
     </div>
 </div>
 
