@@ -2,18 +2,23 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>标签: 测试驱动开发 - Hexo</title>
+<title>Node 全局包管理笔记 - Hexo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/tags/测试驱动开发/index.html">
+    <meta name="description" content="npm：node 自带的包管理工具 yarn：由 facebook 开源的 node 包管理工具  全局包安装npm1$ npm install package-name -g nvm 下载的不同版本的 node 是相互独立 1234~/.nvm/versions/node » lsv10.4.1v4.6.1v8.11.4 上面的命令显示在电脑中下载的3个不同的 node 版本，里面存放着当前版">
+<meta name="keywords" content="node,npm,yarn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node 全局包管理笔记">
+<meta property="og:url" content="http://yoursite.com/2019/01/31/Node-全局包管理笔记/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="npm：node 自带的包管理工具 yarn：由 facebook 开源的 node 包管理工具  全局包安装npm1$ npm install package-name -g nvm 下载的不同版本的 node 是相互独立 1234~/.nvm/versions/node » lsv10.4.1v4.6.1v8.11.4 上面的命令显示在电脑中下载的3个不同的 node 版本，里面存放着当前版">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-01T03:44:05.543Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Node 全局包管理笔记">
+<meta name="twitter:description" content="npm：node 自带的包管理工具 yarn：由 facebook 开源的 node 包管理工具  全局包安装npm1$ npm install package-name -g nvm 下载的不同版本的 node 是相互独立 1234~/.nvm/versions/node » lsv10.4.1v4.6.1v8.11.4 上面的命令显示在电脑中下载的3个不同的 node 版本，里面存放着当前版">
 
 
 
@@ -79,7 +84,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hexo" height="28">
+                <img src="/images/logo.svg" alt="Node 全局包管理笔记" height="28">
             
             </a>
         </div>
@@ -125,39 +130,28 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">测试驱动开发</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    <div class="card">
     
     <div class="card-image">
-        <a href="/2019/01/21/quokka-js/" class="image is-7by1">
-            <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/2.jpg!/both/1500x750" alt="Quokka">
-        </a>
+        <span class="image is-7by1">
+            <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/10.jpg!/both/1500x750" alt="Node 全局包管理笔记">
+        </span>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-01-21T07:22:35.000Z">2019-01-21</time>
+                <time class="level-item has-text-grey" datetime="2019-01-31T06:37:10.000Z">2019-01-31</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/utils/">utils</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/utils/vscode/">vscode</a>
+                <a class="has-link-grey -link" href="/categories/npm/">npm</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 500 个字)
+                    3 分钟 读完 (大约 497 个字)
                 </span>
                 
             </div>
@@ -165,39 +159,48 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/01/21/quokka-js/">Quokka</a>
+                Node 全局包管理笔记
             
         </h1>
         <div class="content">
-            <p>Quokka.js 是 JavaScript 和 TypeScript 的快速原型操作平台。它会在您键入时立即运行代码，并在代码编辑器中显示各种执行结果</p>
-<p>简单的来说，它就是可以让我们开发者们最小程度的进行快速小 demo 的工具</p>
-<blockquote>
-<p>官方简介：Quokka.js is a rapid prototyping playground for JavaScript and TypeScript. It runs your code immediately as you type and displays various execution results in your code editor.</p>
-</blockquote>
-<p><a href="https://quokkajs.com/" target="_blank" rel="noopener">https://quokkajs.com/</a></p>
-<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="下载插件"><a href="#下载插件" class="headerlink" title="下载插件"></a>下载插件</h3><p>在 vscode 中的插件管理中可以直接下载 Quokka.js</p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ol>
-<li>在 vscode 编辑器中按 F1，输入 <code>New JavaScript File</code></li>
-<li>编写你的 JavaScript 代码</li>
-</ol>
-<p>官方demo：</p>
-<p><img src="https://quokkajs.com/assets/img/vsc1.gif" alt=""></p>
-<h2 id="使用感受"><a href="#使用感受" class="headerlink" title="使用感受"></a>使用感受</h2><h3 id="很适合输出小-demo"><a href="#很适合输出小-demo" class="headerlink" title="很适合输出小 demo"></a>很适合输出小 demo</h3><p>默认使用当前的 node 环境，可以通过插件（<a href="https://github.com/wallabyjs/jsdom-quokka-plugin" target="_blank" rel="noopener">jsdom-quokka-plugin</a>）拓展到 window 对象<br>不需要保存就可以看到任何一段代码的输出，真的不要太快，很类似速写笔记本。</p>
-<h3 id="直观"><a href="#直观" class="headerlink" title="直观"></a>直观</h3><p>比 debug 更加直观的体现每行代码</p>
-<ul>
-<li>绿色方块：行尚未执行</li>
-<li>灰色方块：执行通过</li>
-<li>黄色方块：仅部分执行</li>
-<li>红色方块：源行是错误的来源，或者是错误的堆栈</li>
+            <ul>
+<li>npm：node 自带的包管理工具</li>
+<li>yarn：由 facebook 开源的 node 包管理工具</li>
 </ul>
-<h3 id="清晰"><a href="#清晰" class="headerlink" title="清晰"></a>清晰</h3><p>和浏览器控制台一样的展开效果，对比与 node debug 要清晰</p>
-<p><img src="https://quokkajs.com/assets/img/vsc-valexp.gif" alt=""></p>
-<h2 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h2><p><strong>代码会自动通过 babel 去编译</strong>，这个可能不是开发者们想要的，比如</p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> fs <span class="hljs-keyword">from</span> <span class="hljs-string">'fs'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(fs)</span><br></pre></td></tr></table></figure>
-<p>这个不会报错，但是通过原生 node 下是无法直接执行的</p>
-<h3 id="社区版和-Pro-版"><a href="#社区版和-Pro-版" class="headerlink" title="社区版和 Pro 版"></a>社区版和 Pro 版</h3><p>未付费的情况下，只能使用的是<strong>社区版</strong>。功能有限，比如无法导入其他模块，Pro 强大一点，但是要花掉几十块大洋。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.zhihu.com/question/37623307/answer/72955853" target="_blank" rel="noopener">TDD（测试驱动开发）是否已死？</a></p>
-
+<h2 id="全局包"><a href="#全局包" class="headerlink" title="全局包"></a>全局包</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h4><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install package-name -g</span><br></pre></td></tr></table></figure>
+<p>nvm 下载的不同版本的 node 是相互独立</p>
+<figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~/.nvm/versions/node » ls</span><br><span class="line">v10.4.1</span><br><span class="line">v4.6.1</span><br><span class="line">v8.11.4</span><br></pre></td></tr></table></figure>
+<p>上面的命令显示在电脑中下载的3个不同的 node 版本，<strong>里面存放着当前版本中下载的全局包以及 cli 命令</strong></p>
+<h4 id="yarn"><a href="#yarn" class="headerlink" title="yarn"></a>yarn</h4><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yarn global add package-name</span><br></pre></td></tr></table></figure>
+<ul>
+<li>不像 npm 里的 –global 标志，global 是一个必须跟在 yarn 后面的命令。 输入 <code>yarn add global package-name</code> 会把名为 global 和 package-name 的包添加到本地，而非全局添加 package-name。</li>
+</ul>
+<h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># npm</span></span><br><span class="line">$ npm list -g --depth 0</span><br><span class="line"><span class="hljs-comment"># yarn</span></span><br><span class="line">$ yarn global list</span><br></pre></td></tr></table></figure>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># npm</span></span><br><span class="line">$ npm uninstall package-name -g</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">## 如果使用其他比如 tnpm 下载的包，也要换成特定的脚本</span></span><br><span class="line"><span class="hljs-comment">## 比如：tnpm uninstall package-name -g</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># yarn</span></span><br><span class="line">$ yarn global remove package-name</span><br><span class="line">$ yarn global remove @vue/cli@3.0.5</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">## 不需要加版本号</span></span><br><span class="line">❎ yarn global remove @vue/cli@3.0.5</span><br><span class="line">✅ yarn global remove @vue/cli</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">## 也会移除全局对应</span></span><br></pre></td></tr></table></figure>
+<h3 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h3><h4 id="查看脚本目录"><a href="#查看脚本目录" class="headerlink" title="查看脚本目录"></a>查看脚本目录</h4><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="hljs-built_in">which</span> $(cli-name)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">## 栗子</span></span><br><span class="line">$ <span class="hljs-built_in">which</span> dva</span><br><span class="line"></span><br><span class="line">/Users/dyun/.nvm/versions/node/v10.4.1/bin/dva</span><br></pre></td></tr></table></figure>
+<h4 id="npm-1"><a href="#npm-1" class="headerlink" title="npm"></a>npm</h4><p>如果使用了<code>nvm</code>,比如我的 node 版本现在用的是10.4.1</p>
+<ul>
+<li>cli 目录  ~/.nvm/versions/node/v10.4.1/bin/</li>
+<li>全局包    ~/.nvm/versions/node/v10.4.1/lib/node_modules/</li>
+</ul>
+<h4 id="yarn-1"><a href="#yarn-1" class="headerlink" title="yarn"></a>yarn</h4><ul>
+<li><code>yarn global dir</code>: 将打印包含全局node_modules的全局安装文件夹的输出。默认情况下为：〜/.config/yarn/global</li>
+<li><code>yarn bin</code>: 显示 yarn bin 目录的位置。默认情况下为：~/.config/yarn/global/node_modules/.bin</li>
+</ul>
+<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ul>
+<li>npm 下载的包是区分 node 版本的（nvm），yarn 下载的全局包是不区分的（在任何 node 版本下都可以使用）</li>
+<li>npm 下载只会提供当前包的 cli 命令。而通过 yarn 下载的则会提供包括依赖包的 cli</li>
+</ul>
+<h2 id="nvm-切换版本解析"><a href="#nvm-切换版本解析" class="headerlink" title="nvm 切换版本解析"></a>nvm 切换版本解析</h2><h3 id="切换命令"><a href="#切换命令" class="headerlink" title="切换命令"></a>切换命令</h3><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 这个命令只是简单的切换了 PATH 的脚本目录</span></span><br><span class="line"></span><br><span class="line">nvm use $(version)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># PATH=/Users/dyun/.nvm/versions/node/$(version)/bin</span></span><br></pre></td></tr></table></figure>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/node/">node</a>, <a class="has-link-grey -link" href="/tags/npm/">npm</a>, <a class="has-link-grey -link" href="/tags/yarn/">yarn</a>
+                </div>
+            </div>
         </div>
         
         
@@ -206,7 +209,19 @@
 </div>
 
 
-
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/01/29/debug-小记/">
+                <span class="level-item">debug 小记</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -732,7 +747,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hexo" height="28">
+                    <img src="/images/logo.svg" alt="Node 全局包管理笔记" height="28">
                 
                 </a>
                 <p class="is-size-7">

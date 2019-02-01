@@ -139,8 +139,8 @@
     <div class="card">
     
     <div class="card-image">
-        <a href="/2019/01/31/Node-包管理笔记/" class="image is-7by1">
-            <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/10.jpg!/both/1500x750" alt="Node 包管理笔记">
+        <a href="/2019/01/31/Node-全局包管理笔记/" class="image is-7by1">
+            <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/10.jpg!/both/1500x750" alt="Node 全局包管理笔记">
         </a>
     </div>
     
@@ -158,7 +158,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 299 个字)
+                    3 分钟 读完 (大约 497 个字)
                 </span>
                 
             </div>
@@ -166,7 +166,7 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/01/31/Node-包管理笔记/">Node 包管理笔记</a>
+                <a class="has-link-black-ter" href="/2019/01/31/Node-全局包管理笔记/">Node 全局包管理笔记</a>
             
         </h1>
         <div class="content">
@@ -174,21 +174,31 @@
 <li>npm：node 自带的包管理工具</li>
 <li>yarn：由 facebook 开源的 node 包管理工具</li>
 </ul>
-<h2 id="全局包"><a href="#全局包" class="headerlink" title="全局包"></a>全局包</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h4><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install package-name -g</span><br><span class="line"></span><br><span class="line">备注项：</span><br><span class="line">- 如果使用了 nvm，在不同版本下下载的包只会存在对应的 /lib/node_modules 目录下。</span><br></pre></td></tr></table></figure>
+<h2 id="全局包"><a href="#全局包" class="headerlink" title="全局包"></a>全局包</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h4><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install package-name -g</span><br></pre></td></tr></table></figure>
+<p>nvm 下载的不同版本的 node 是相互独立</p>
+<figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~/.nvm/versions/node » ls</span><br><span class="line">v10.4.1</span><br><span class="line">v4.6.1</span><br><span class="line">v8.11.4</span><br></pre></td></tr></table></figure>
+<p>上面的命令显示在电脑中下载的3个不同的 node 版本，<strong>里面存放着当前版本中下载的全局包以及 cli 命令</strong></p>
 <h4 id="yarn"><a href="#yarn" class="headerlink" title="yarn"></a>yarn</h4><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yarn global add package-name</span><br></pre></td></tr></table></figure>
 <ul>
 <li>不像 npm 里的 –global 标志，global 是一个必须跟在 yarn 后面的命令。 输入 <code>yarn add global package-name</code> 会把名为 global 和 package-name 的包添加到本地，而非全局添加 package-name。</li>
 </ul>
 <h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># npm</span></span><br><span class="line">$ npm list -g --depth 0</span><br><span class="line"><span class="hljs-comment"># yarn</span></span><br><span class="line">$ yarn global list</span><br></pre></td></tr></table></figure>
-<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># npm</span></span><br><span class="line">$ npm uninstall package-name -g</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">## 如果使用其他比如 tnpm 下载的包，也要换成特定的脚本</span></span><br><span class="line"><span class="hljs-comment">## 比如：tnpm uninstall package-name -g</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># yarn</span></span><br><span class="line">$ yarn global remove package-name</span><br><span class="line">$ yarn global remove @vue/cli@3.0.5</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">## 不需要加版本号</span></span><br><span class="line">❎ yarn global remove @vue/cli@3.0.5</span><br><span class="line">✅ yarn global remove @vue/cli</span><br></pre></td></tr></table></figure>
-<h3 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h3><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="hljs-built_in">which</span> $(cli-name)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">## 栗子</span></span><br><span class="line">$ <span class="hljs-built_in">which</span> dva</span><br><span class="line"></span><br><span class="line">/Users/dyun/.nvm/versions/node/v10.4.1/bin/dva</span><br></pre></td></tr></table></figure>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># npm</span></span><br><span class="line">$ npm uninstall package-name -g</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">## 如果使用其他比如 tnpm 下载的包，也要换成特定的脚本</span></span><br><span class="line"><span class="hljs-comment">## 比如：tnpm uninstall package-name -g</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># yarn</span></span><br><span class="line">$ yarn global remove package-name</span><br><span class="line">$ yarn global remove @vue/cli@3.0.5</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">## 不需要加版本号</span></span><br><span class="line">❎ yarn global remove @vue/cli@3.0.5</span><br><span class="line">✅ yarn global remove @vue/cli</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">## 也会移除全局对应</span></span><br></pre></td></tr></table></figure>
+<h3 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h3><h4 id="查看脚本目录"><a href="#查看脚本目录" class="headerlink" title="查看脚本目录"></a>查看脚本目录</h4><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="hljs-built_in">which</span> $(cli-name)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">## 栗子</span></span><br><span class="line">$ <span class="hljs-built_in">which</span> dva</span><br><span class="line"></span><br><span class="line">/Users/dyun/.nvm/versions/node/v10.4.1/bin/dva</span><br></pre></td></tr></table></figure>
 <h4 id="npm-1"><a href="#npm-1" class="headerlink" title="npm"></a>npm</h4><p>如果使用了<code>nvm</code>,比如我的 node 版本现在用的是10.4.1</p>
 <ul>
 <li>cli 目录  ~/.nvm/versions/node/v10.4.1/bin/</li>
 <li>全局包    ~/.nvm/versions/node/v10.4.1/lib/node_modules/</li>
 </ul>
-<h3 id="yarn-1"><a href="#yarn-1" class="headerlink" title="yarn"></a>yarn</h3><p>与 <code>npm</code> 不同的是，通过 <code>yarn</code> 下载的全局包是不区分 node 版本的。</p>
-
+<h4 id="yarn-1"><a href="#yarn-1" class="headerlink" title="yarn"></a>yarn</h4><ul>
+<li><code>yarn global dir</code>: 将打印包含全局node_modules的全局安装文件夹的输出。默认情况下为：〜/.config/yarn/global</li>
+<li><code>yarn bin</code>: 显示 yarn bin 目录的位置。默认情况下为：~/.config/yarn/global/node_modules/.bin</li>
+</ul>
+<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><ul>
+<li>npm 下载的包是区分 node 版本的（nvm），yarn 下载的全局包是不区分的（在任何 node 版本下都可以使用）</li>
+<li>npm 下载只会提供当前包的 cli 命令。而通过 yarn 下载的则会提供包括依赖包的 cli</li>
+</ul>
+<h2 id="nvm-切换版本解析"><a href="#nvm-切换版本解析" class="headerlink" title="nvm 切换版本解析"></a>nvm 切换版本解析</h2><h3 id="切换命令"><a href="#切换命令" class="headerlink" title="切换命令"></a>切换命令</h3><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 这个命令只是简单的切换了 PATH 的脚本目录</span></span><br><span class="line"></span><br><span class="line">nvm use $(version)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># PATH=/Users/dyun/.nvm/versions/node/$(version)/bin</span></span><br></pre></td></tr></table></figure>
         </div>
         
         
@@ -405,16 +415,16 @@
         
         <article class="media">
             
-            <a href="/2019/01/31/Node-包管理笔记/" class="media-left">
+            <a href="/2019/01/31/Node-全局包管理笔记/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/10.jpg!/both/1500x750" alt="Node 包管理笔记">
+                    <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/10.jpg!/both/1500x750" alt="Node 全局包管理笔记">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-31T06:37:10.000Z">2019-01-31</time></div>
-                    <a href="/2019/01/31/Node-包管理笔记/" class="has-link-black-ter is-size-6">Node 包管理笔记</a>
+                    <a href="/2019/01/31/Node-全局包管理笔记/" class="has-link-black-ter is-size-6">Node 全局包管理笔记</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/npm/">npm</a>
                     </p>
@@ -568,16 +578,16 @@
         
         <article class="media">
             
-            <a href="/2019/01/31/Node-包管理笔记/" class="media-left">
+            <a href="/2019/01/31/Node-全局包管理笔记/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/10.jpg!/both/1500x750" alt="Node 包管理笔记">
+                    <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/10.jpg!/both/1500x750" alt="Node 全局包管理笔记">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-31T06:37:10.000Z">2019-01-31</time></div>
-                    <a href="/2019/01/31/Node-包管理笔记/" class="has-link-black-ter is-size-6">Node 包管理笔记</a>
+                    <a href="/2019/01/31/Node-全局包管理笔记/" class="has-link-black-ter is-size-6">Node 全局包管理笔记</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/categories/npm/">npm</a>
                     </p>
