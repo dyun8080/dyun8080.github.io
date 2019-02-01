@@ -138,6 +138,70 @@
     <div class="card">
     
     <div class="card-image">
+        <a href="/2019/01/31/Node-包管理笔记/" class="image is-7by1">
+            <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/10.jpg!/both/1500x750" alt="Node 包管理笔记">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-01-31T06:37:10.000Z">2019-01-31</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/npm/">npm</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 299 个字)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/01/31/Node-包管理笔记/">Node 包管理笔记</a>
+            
+        </h1>
+        <div class="content">
+            <ul>
+<li>npm：node 自带的包管理工具</li>
+<li>yarn：由 facebook 开源的 node 包管理工具</li>
+</ul>
+<h2 id="全局包"><a href="#全局包" class="headerlink" title="全局包"></a>全局包</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h4><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ npm install package-name -g</span><br><span class="line"></span><br><span class="line">备注项：</span><br><span class="line">- 如果使用了 nvm，在不同版本下下载的包只会存在对应的 /lib/node_modules 目录下。</span><br></pre></td></tr></table></figure>
+<h4 id="yarn"><a href="#yarn" class="headerlink" title="yarn"></a>yarn</h4><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yarn global add package-name</span><br></pre></td></tr></table></figure>
+<ul>
+<li>不像 npm 里的 –global 标志，global 是一个必须跟在 yarn 后面的命令。 输入 <code>yarn add global package-name</code> 会把名为 global 和 package-name 的包添加到本地，而非全局添加 package-name。</li>
+</ul>
+<h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># npm</span></span><br><span class="line">$ npm list -g --depth 0</span><br><span class="line"><span class="hljs-comment"># yarn</span></span><br><span class="line">$ yarn global list</span><br></pre></td></tr></table></figure>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># npm</span></span><br><span class="line">$ npm uninstall package-name -g</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">## 如果使用其他比如 tnpm 下载的包，也要换成特定的脚本</span></span><br><span class="line"><span class="hljs-comment">## 比如：tnpm uninstall package-name -g</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># yarn</span></span><br><span class="line">$ yarn global remove package-name</span><br><span class="line">$ yarn global remove @vue/cli@3.0.5</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">## 不需要加版本号</span></span><br><span class="line">❎ yarn global remove @vue/cli@3.0.5</span><br><span class="line">✅ yarn global remove @vue/cli</span><br></pre></td></tr></table></figure>
+<h3 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h3><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="hljs-built_in">which</span> $(cli-name)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">## 栗子</span></span><br><span class="line">$ <span class="hljs-built_in">which</span> dva</span><br><span class="line"></span><br><span class="line">/Users/dyun/.nvm/versions/node/v10.4.1/bin/dva</span><br></pre></td></tr></table></figure>
+<h4 id="npm-1"><a href="#npm-1" class="headerlink" title="npm"></a>npm</h4><p>如果使用了<code>nvm</code>,比如我的 node 版本现在用的是10.4.1</p>
+<ul>
+<li>cli 目录  ~/.nvm/versions/node/v10.4.1/bin/</li>
+<li>全局包    ~/.nvm/versions/node/v10.4.1/lib/node_modules/</li>
+</ul>
+<h3 id="yarn-1"><a href="#yarn-1" class="headerlink" title="yarn"></a>yarn</h3><p>与 <code>npm</code> 不同的是，通过 <code>yarn</code> 下载的全局包是不区分 node 版本的。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-image">
         <a href="/2019/01/29/debug-小记/" class="image is-7by1">
             <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/6.jpg!/both/1500x750" alt="debug 小记">
         </a>
@@ -342,7 +406,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        6
+                        7
                     </p>
                 </div>
             </div>
@@ -352,7 +416,7 @@
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        4
+                        5
                     </p>
                 </div>
             </div>
@@ -362,7 +426,7 @@
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        7
+                        9
                     </p>
                 </div>
             </div>
@@ -465,6 +529,14 @@
                 <span class="level-item tag">2</span>
             </span>
         </a></li><li>
+        <a class="level is-marginless" href="/categories/npm/">
+            <span class="level-start">
+                <span class="level-item">npm</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/categories/utils/">
             <span class="level-start">
                 <span class="level-item">utils</span>
@@ -498,6 +570,25 @@
         
         <article class="media">
             
+            <a href="/2019/01/31/Node-包管理笔记/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/10.jpg!/both/1500x750" alt="Node 包管理笔记">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-31T06:37:10.000Z">2019-01-31</time></div>
+                    <a href="/2019/01/31/Node-包管理笔记/" class="has-link-black-ter is-size-6">Node 包管理笔记</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/npm/">npm</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/01/29/debug-小记/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/6.jpg!/both/1500x750" alt="debug 小记">
@@ -572,25 +663,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/12/07/test-01/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-2712.jpg" alt="Hello World">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-07T06:29:28.221Z">2018-12-07</time></div>
-                    <a href="/2018/12/07/test-01/" class="has-link-black-ter is-size-6">Hello World</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -609,7 +681,7 @@
                     <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -636,7 +708,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/browser/" style="font-size: 10px;">browser</a> <a href="/tags/debug/" style="font-size: 20px;">debug</a> <a href="/tags/node/" style="font-size: 20px;">node</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/单元测试/" style="font-size: 10px;">单元测试</a> <a href="/tags/测试驱动开发/" style="font-size: 10px;">测试驱动开发</a>
+        <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/browser/" style="font-size: 10px;">browser</a> <a href="/tags/debug/" style="font-size: 15px;">debug</a> <a href="/tags/node/" style="font-size: 20px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/单元测试/" style="font-size: 10px;">单元测试</a> <a href="/tags/测试驱动开发/" style="font-size: 10px;">测试驱动开发</a>
     </div>
 </div>
 
@@ -661,6 +733,25 @@
         
         <article class="media">
             
+            <a href="/2019/01/31/Node-包管理笔记/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/10.jpg!/both/1500x750" alt="Node 包管理笔记">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-01-31T06:37:10.000Z">2019-01-31</time></div>
+                    <a href="/2019/01/31/Node-包管理笔记/" class="has-link-black-ter is-size-6">Node 包管理笔记</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/npm/">npm</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/01/29/debug-小记/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="http://dyun-assets-images.test.upcdn.net/4k/6.jpg!/both/1500x750" alt="debug 小记">
@@ -735,25 +826,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/12/07/test-01/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-2712.jpg" alt="Hello World">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-07T06:29:28.221Z">2018-12-07</time></div>
-                    <a href="/2018/12/07/test-01/" class="has-link-black-ter is-size-6">Hello World</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -772,7 +844,7 @@
                     <span class="level-item">一月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -799,7 +871,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/browser/" style="font-size: 10px;">browser</a> <a href="/tags/debug/" style="font-size: 20px;">debug</a> <a href="/tags/node/" style="font-size: 20px;">node</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/单元测试/" style="font-size: 10px;">单元测试</a> <a href="/tags/测试驱动开发/" style="font-size: 10px;">测试驱动开发</a>
+        <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/browser/" style="font-size: 10px;">browser</a> <a href="/tags/debug/" style="font-size: 15px;">debug</a> <a href="/tags/node/" style="font-size: 20px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/yarn/" style="font-size: 10px;">yarn</a> <a href="/tags/单元测试/" style="font-size: 10px;">单元测试</a> <a href="/tags/测试驱动开发/" style="font-size: 10px;">测试驱动开发</a>
     </div>
 </div>
 
