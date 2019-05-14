@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="npm：node 自带的包管理工具 yarn：由 facebook 开源的 node 包管理工具  全局包安装npm1$ npm install package-name -g nvm 下载的不同版本的 node 是相互独立 1234~/.nvm/versions/node » lsv10.4.1v4.6.1v8.11.4 上面的命令显示在电脑中下载的3个不同的 node 版本，里面存放着当前版">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-01T03:44:05.543Z">
+<meta property="og:updated_time" content="2019-02-11T06:39:29.552Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node 全局包管理笔记">
 <meta name="twitter:description" content="npm：node 自带的包管理工具 yarn：由 facebook 开源的 node 包管理工具  全局包安装npm1$ npm install package-name -g nvm 下载的不同版本的 node 是相互独立 1234~/.nvm/versions/node » lsv10.4.1v4.6.1v8.11.4 上面的命令显示在电脑中下载的3个不同的 node 版本，里面存放着当前版">
@@ -151,7 +151,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 497 个字)
+                    3 分钟 读完 (大约 495 个字)
                 </span>
                 
             </div>
@@ -178,7 +178,7 @@
 <h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># npm</span></span><br><span class="line">$ npm list -g --depth 0</span><br><span class="line"><span class="hljs-comment"># yarn</span></span><br><span class="line">$ yarn global list</span><br></pre></td></tr></table></figure>
 <h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># npm</span></span><br><span class="line">$ npm uninstall package-name -g</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">## 如果使用其他比如 tnpm 下载的包，也要换成特定的脚本</span></span><br><span class="line"><span class="hljs-comment">## 比如：tnpm uninstall package-name -g</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># yarn</span></span><br><span class="line">$ yarn global remove package-name</span><br><span class="line">$ yarn global remove @vue/cli@3.0.5</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">## 不需要加版本号</span></span><br><span class="line">❎ yarn global remove @vue/cli@3.0.5</span><br><span class="line">✅ yarn global remove @vue/cli</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">## 也会移除全局对应</span></span><br></pre></td></tr></table></figure>
 <h3 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h3><h4 id="查看脚本目录"><a href="#查看脚本目录" class="headerlink" title="查看脚本目录"></a>查看脚本目录</h4><figure class="highlight zsh hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="hljs-built_in">which</span> $(cli-name)</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">## 栗子</span></span><br><span class="line">$ <span class="hljs-built_in">which</span> dva</span><br><span class="line"></span><br><span class="line">/Users/dyun/.nvm/versions/node/v10.4.1/bin/dva</span><br></pre></td></tr></table></figure>
-<h4 id="npm-1"><a href="#npm-1" class="headerlink" title="npm"></a>npm</h4><p>如果使用了<code>nvm</code>,比如我的 node 版本现在用的是10.4.1</p>
+<h4 id="npm-1"><a href="#npm-1" class="headerlink" title="npm"></a>npm</h4><p>如果使用了<code>nvm</code>,比如 node 版本现在用的是10.4.1</p>
 <ul>
 <li>cli 目录  ~/.nvm/versions/node/v10.4.1/bin/</li>
 <li>全局包    ~/.nvm/versions/node/v10.4.1/lib/node_modules/</li>
